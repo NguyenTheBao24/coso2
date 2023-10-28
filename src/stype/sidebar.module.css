@@ -1,0 +1,45 @@
+/* SideBar.module.css */
+.ul {
+  list-style-type: none;
+  padding: 20px;
+}
+.input {
+  border: 1px solid #ccc; /* Màu viền */
+  border-radius: 5px; /* Độ cong viền */
+  outline: none;
+  font-size: 16px; /* Cỡ chữ */
+  width: 150px;
+}
+.icon{
+    color: white;
+    text-decoration: none;
+}
+.ul li {
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: aliceblue;
+  /* Thay đổi khoảng cách giữa các icon */
+}
+/* SideBar.module.css */
+
+.sidebar {
+  width: 50px; /* Kích thước ban đầu của thanh sidebar */
+  height: 100vh; /* Điều chỉnh chiều cao theo nhu cầu */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #1e90ff; /* Màu xanh cho sidebar */
+  transition: width 0.3s; /* Thêm transition cho width */
+  display: flex;
+  align-items: center;
+}
+
+.sidebar:hover {
+  width: 15%; /* Kích thước của sidebar khi hover */
+}
+
+.side {
+  position: absolute;
+  top: 10px;
+}

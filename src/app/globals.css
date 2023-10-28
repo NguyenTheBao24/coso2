@@ -1,0 +1,9 @@
+body {
+  display: flex;
+}
+.children {
+  width: 95%;
+  margin-left: 15%; /* Để không bị chồng lấn với sidebar */
+  height: 100%;
+  /* Các thuộc tính CSS khác */
+}
