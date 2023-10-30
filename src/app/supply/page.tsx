@@ -5,14 +5,15 @@ import Button from "react-bootstrap/Button";
 import styles from "@/stype/supply2.module.css";
 import Module from "@/compoment/moduls";
 import ModuleNew from "@/compoment/modulsNew";
+import SideBar from "@/compoment/Sidebar";
 const Supply = () => (
   <>
+    <SideBar></SideBar>
     <div className={styles.center}>
-      <div className={styles.title} >
+      <div className={styles.title}>
+        <h1>Nguồn Cung Khác Hàng </h1>
 
-      <h1 >Nguồn Cung Khác Hàng </h1>
-
-      <ModuleNew/>
+        <ModuleNew />
       </div>
       <Table striped bordered hover>
         <thead>

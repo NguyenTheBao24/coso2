@@ -4,15 +4,21 @@
   padding: 20px;
 }
 .input {
-  border: 1px solid #ccc; /* Màu viền */
+  border: 1px solid white; /* Màu viền */
   border-radius: 5px; /* Độ cong viền */
   outline: none;
   font-size: 16px; /* Cỡ chữ */
   width: 150px;
 }
-.icon{
-    color: white;
-    text-decoration: none;
+.div {
+  border: 1px solid #ccc; /* Màu viền */
+  border-radius: 5px;
+  width: 200px;
+  background-color: white;
+}
+.icon {
+  color: white;
+  text-decoration: none;
 }
 .ul li {
   margin-bottom: 10px;
@@ -42,4 +48,10 @@
 .side {
   position: absolute;
   top: 10px;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

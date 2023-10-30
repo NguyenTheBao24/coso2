@@ -3,13 +3,14 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import styles from "@/stype/supply2.module.css";
 import ModuleUse from "@/compoment/modulsUse";
+import SideBar from "@/compoment/Sidebar";
 export default function Home() {
   return (
     <>
+      <SideBar></SideBar>
       <div className={styles.center}>
         <div className={styles.title}>
           <h1>Khách Hàng Tiềm Năng</h1>
-
         </div>
         <Table striped bordered hover>
           <thead>

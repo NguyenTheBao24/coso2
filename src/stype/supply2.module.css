@@ -1,20 +1,16 @@
 .center {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    text-align: center;
-  }
-  .title{
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-     
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  .btn_l{
-    margin-left: 20px;
-  }
-  
+  width: 85%;
+  margin-left: 15%;
+}
+.title {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.btn_l {
+  margin-left: 20px;
+}

@@ -32,11 +32,15 @@ const SideBar = () => {
             <ul className={styles.ul}>
               <li>
                 {showSearchBar ? (
-                  <div>
+                  <div className={styles.div}>
                     <input
                       type="text"
                       className={styles.input}
                       placeholder="Search..."
+                    />
+                    <FontAwesomeIcon
+                      icon={faSearch}
+                      style={{ color: "1e90ff" }}
                     />
                   </div>
                 ) : (
