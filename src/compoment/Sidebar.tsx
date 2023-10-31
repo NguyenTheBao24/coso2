@@ -3,7 +3,12 @@
 
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faShapes, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faSearch,
+  faShapes,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import styles from "../stype/sidebar.module.css";
 import Link from "next/link";
 
@@ -30,23 +35,7 @@ const SideBar = () => {
         <>
           <div className={styles.side}>
             <ul className={styles.ul}>
-              <li>
-                {showSearchBar ? (
-                  <div className={styles.div}>
-                    <input
-                      type="text"
-                      className={styles.input}
-                      placeholder="Search..."
-                    />
-                    <FontAwesomeIcon
-                      icon={faSearch}
-                      style={{ color: "1e90ff" }}
-                    />
-                  </div>
-                ) : (
-                  <FontAwesomeIcon icon={faSearch} />
-                )}
-              </li>
+              
               <li>
                 <Link href="/user" className={styles.icon}>
                   <FontAwesomeIcon icon={faUser} />
@@ -65,9 +54,7 @@ const SideBar = () => {
       ) : (
         <div className={styles.side}>
           <ul className={styles.ul}>
-            <li>
-              <FontAwesomeIcon icon={faSearch} />
-            </li>
+            
             <li>
               <FontAwesomeIcon icon={faUser} />
             </li>
