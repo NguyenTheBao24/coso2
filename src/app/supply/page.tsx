@@ -11,7 +11,7 @@ const Supply = () => (
     <SideBar></SideBar>
     <div className={styles.center}>
       <div className={styles.title}>
-        <h1>Nguồn Cung Khác Hàng </h1>
+        <h1>Nguồn Cung Khách Hàng </h1>
 
         <ModuleNew />
       </div>

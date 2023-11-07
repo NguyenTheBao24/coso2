@@ -1,10 +1,47 @@
-"use client";
+
+"use client"
+
+import { useState, useEffect } from 'react';
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import styles from "@/stype/supply2.module.css";
 import ModuleUse from "@/compoment/modulsUse";
 import SideBar from "@/compoment/Sidebar";
+import { apiUser, deleteCustomer } from "@/sever/user";
+
 export default function Home() {
+  const [userData, setUserData] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await apiUser(); // Gọi hàm API từ apiUser
+        setUserData(data); // Lưu dữ liệu từ API vào state
+      } catch (error) {
+        console.error('Đã xảy ra lỗi khi lấy dữ liệu:', error);
+      }
+    };
+
+    fetchData(); // Gọi hàm fetchData khi component được render
+  }, []);
+
+  console.log(userData)
+
+  const handleDelete = (id: any) => {
+    const handleDeleteAsync = async () => {
+      try {
+        await deleteCustomer(id);
+        const updatedData = userData.filter((user) => user.ID !== id);
+        setUserData(updatedData);
+      } catch (error) {
+        console.error('Đã xảy ra lỗi khi xoá dữ liệu khách hàng:', error);
+        // Xử lý lỗi tại đây (nếu cần)
+      }
+    };
+
+    return handleDeleteAsync;
+  };
+
   return (
     <>
       <SideBar></SideBar>
@@ -21,16 +58,18 @@ export default function Home() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td colSpan={2}>Mark</td>
-              <td>
-                <ModuleUse />
-                <Button className={styles.btn_l} variant="danger">
-                  xoá
-                </Button>
-              </td>
-            </tr>
+            {userData.map((user, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td colSpan={2}>{user.Ten}</td>
+                <td>
+                  <ModuleUse  data ={user}  />
+                  <Button className={styles.btn_l} variant="danger" onClick={handleDelete(user.ID)}>
+                    xoá
+                  </Button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </div>
