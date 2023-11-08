@@ -33,14 +33,20 @@ function ModuleNewUser({ onUpdate }: any) {
     setShow(true);
     
   }
-
+  
   const handleUpdate = async ()=>{
+    if (ten === "" || BCC === "" || CC === "" || DiaChi === "" || ThongTinChung === "") {
+      alert("Vui lòng nhập đầy đủ thông tin");
+      
+      return; 
+    }
+
     const newData = {
       Ten: ten,
       BCC: BCC,
       CC: CC,
       DiaChi: DiaChi,
-      ThongTinChungChung: ThongTinChung
+      ThongTinChung: ThongTinChung
     };
 
     try {
@@ -49,7 +55,6 @@ function ModuleNewUser({ onUpdate }: any) {
       handleClose();
     } catch (error) {
       console.error("Error updating customer data:", error);
-      // Add any error handling logic here
     }
 
   }

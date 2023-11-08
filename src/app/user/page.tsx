@@ -13,20 +13,19 @@ export default function Home() {
   const [userData, setUserData] = useState<any[]>([]);
   const fetchData = async () => {
     try {
-      const data = await apiUser(); // Gọi hàm API từ apiUser
-      setUserData(data); // Lưu dữ liệu từ API vào state
+      const data = await apiUser(); 
+      setUserData(data); 
     } catch (error) {
       console.error("Đã xảy ra lỗi khi lấy dữ liệu:", error);
     }
   };
   useEffect(() => {
-    fetchData(); // Gọi hàm fetchData khi component được render
+    fetchData(); 
   }, []);
 
   const handleUpdate = () => {
-    fetchData(); // Đảo ngược giá trị của biến check để kích hoạt useEffect
+    fetchData(); 
   };
-  console.log(userData);
   const handleDelete = (id: any) => {
     const handleDeleteAsync = async () => {
       try {
@@ -35,16 +34,23 @@ export default function Home() {
         setUserData(updatedData);
       } catch (error) {
         console.error("Đã xảy ra lỗi khi xoá dữ liệu khách hàng:", error);
-        // Xử lý lỗi tại đây (nếu cần)
       }
     };
 
     return handleDeleteAsync;
   };
+  const handleSearch = (search:any) => {
+   
+    const filteredData = userData.filter((user) =>
+      user.SDT.toLowerCase().includes(search.toLowerCase())
+    );
+    console.log(search)
+    setUserData(filteredData);
+  };
 
   return (
     <>
-      <SideBar></SideBar>
+      <SideBar onSearch={handleSearch} onUpdate={handleUpdate} ></SideBar>
       <div className={styles.center}>
         <div className={styles.title}>
           <h1>Khách Hàng Tiềm Năng</h1>

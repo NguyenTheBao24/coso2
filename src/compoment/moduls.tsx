@@ -16,8 +16,7 @@ function Module({ data, onUpdate }: any) {
   const handleBCCChange = (e: any) => setBCC(e.target.value);
   const handleDiaChiChange = (e: any) => setDiaChi(e.target.value);
   const handleCCChange = (e: any) => setCC(e.target.value);
-  const handleThongTinChungChange = (e: any) =>
-    setThongTinChung(e.target.value);
+  const handleThongTinChungChange = (e: any) => setThongTinChung(e.target.value);
 
   const handleClose = () => {
     setTen(data.Ten);
@@ -54,7 +53,6 @@ function Module({ data, onUpdate }: any) {
       handleClose();
     } catch (error) {
       console.error("Error updating customer data:", error);
-      // Add any error handling logic here
     }
 
   }

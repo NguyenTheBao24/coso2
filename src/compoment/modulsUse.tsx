@@ -38,7 +38,40 @@ function ModuleUse({ data, onUpdate }: any) {
     setShow(true);
   };
 
+  const isValidEmail = (email:any) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
+
+  const isValidPhoneNumber = (phoneNumber:any) => {
+    const phonePattern = /^\d{10,11}$/; 
+    return phonePattern.test(phoneNumber);
+  };
+
   const handleSave = async () => {
+
+
+
+    if (ten === "" || sdt === "" || email === "" || nghenghiep === "" || thongtin === "") {
+      alert("Vui lòng nhập đầy đủ thông tin");
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      alert("Vui lòng nhập đúng định dạng email");
+      return;
+    }
+
+    if (!isValidPhoneNumber(sdt)) {
+      alert("Vui lòng nhập số điện thoại hợp lệ");
+      return;
+    }
+
+
+
+
+
+
  
     const updatedData = {
       Ten: ten,
@@ -55,7 +88,6 @@ function ModuleUse({ data, onUpdate }: any) {
       handleClose();
     } catch (error) {
       console.error("Error updating customer data:", error);
-      // Add any error handling logic here
     }
   };
 
