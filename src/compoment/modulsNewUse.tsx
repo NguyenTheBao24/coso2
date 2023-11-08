@@ -2,32 +2,32 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { newSupply } from "@/sever/suply";
+import { newCustomer } from "@/sever/user";
 
 function ModuleNewUser({ onUpdate }: any) {
   const [show, setShow] = useState(false);
   const [ten, setTen] = useState("");
-  const [BCC, setBCC] = useState("");
-  const [CC, setCC] = useState("");
-  const [DiaChi, setDiaChi] = useState("");
-  const [ThongTinChung, setThongTinChung] = useState("");
+  const [sdt, setSdt] = useState("");
+  const [email, setEmail] = useState("");
+  const [nghenghiep, setNgheNghiep] = useState("");
+  const [thongtin, setThongtin] = useState("");
 
 
 
   const handleTenChange = (e: any) => setTen(e.target.value);
-  const handleBCCChange = (e: any) => setBCC(e.target.value);
-  const handleDiaChiChange = (e: any) => setDiaChi(e.target.value);
-  const handleCCChange = (e: any) => setCC(e.target.value);
-  const handleThongTinChungChange = (e: any) => setThongTinChung(e.target.value);
+  const handleSdtChange = (e: any) => setSdt(e.target.value);
+  const handleNgheNghiepChange = (e: any) => setNgheNghiep(e.target.value);
+  const handleEmailChange = (e: any) => setEmail(e.target.value);
+  const handleThongtinChange = (e: any) => setThongtin(e.target.value);
 
   const handleClose = () =>{
 
     setShow(false);
     setTen("");
-    setBCC("");
-    setCC("");
-    setDiaChi("");
-    setThongTinChung("");
+    setSdt("");
+    setEmail("");
+    setNgheNghiep("");
+    setThongtin("");
   } 
   const handleShow = () =>{
     setShow(true);
@@ -37,14 +37,14 @@ function ModuleNewUser({ onUpdate }: any) {
   const handleUpdate = async ()=>{
     const newData = {
       Ten: ten,
-      BCC: BCC,
-      CC: CC,
-      DiaChi: DiaChi,
-      ThongTinChungChung: ThongTinChung
+      SDT: sdt,
+      Email: email,
+      NgheNghiep: nghenghiep,
+      ThongTinChung: thongtin
     };
 
     try {
-      await newSupply(newData);
+      await newCustomer(newData);
       onUpdate();
       handleClose();
     } catch (error) {
@@ -72,34 +72,33 @@ function ModuleNewUser({ onUpdate }: any) {
             </Form.Group>
 
             <Form.Group controlId="formAddress">
-              <Form.Label>BCC</Form.Label>
-              <Form.Control type="text" placeholder="BCC"
-                value={BCC}
-                onChange={handleBCCChange} />
+              <Form.Label>SDT</Form.Label>
+              <Form.Control type="text" placeholder="SDT"
+                value={sdt}
+                onChange={handleSdtChange} />
             </Form.Group>
 
             
 
             <Form.Group controlId="formCC">
-              <Form.Label>CC</Form.Label>
-              <Form.Control type="CC" placeholder="Nhập CC"
-                value={CC}
-                onChange={handleCCChange} />
-            </Form.Group>
-            <Form.Group controlId="formCC">
-              <Form.Label>DiaChi</Form.Label>
-              <Form.Control type="text" placeholder="Nhập Dia Chi"
-                value={DiaChi}
-                onChange={handleDiaChiChange} />
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" placeholder="Nhập Email"
+                value={email}
+                onChange={handleEmailChange} />
             </Form.Group>
 
-           
+            <Form.Group controlId="formContent">
+              <Form.Label>Nghề Nghiệp</Form.Label>
+              <Form.Control type="text"  placeholder="Nhập Nghề Nghiệp"
+                value={nghenghiep}
+                onChange={handleNgheNghiepChange} />
+            </Form.Group>
             
             <Form.Group controlId="formContent">
               <Form.Label>Thông Tin Chung</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Thông Tin Chung"
-                value={ThongTinChung}
-                onChange={handleThongTinChungChange} />
+                value={thongtin}
+                onChange={handleThongtinChange} />
             </Form.Group>
           </Form>
         </Modal.Body>

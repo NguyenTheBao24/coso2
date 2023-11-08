@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const apiUser = async () => {
+export const apisupply = async () => {
   try {
     const response = await axios.get(
-      "http://20.212.111.173:5000/khachhangtiemnang"
+      "http://20.212.111.173:5000/nhacungcap"
     );
     //   console.log(response)
     return response.data;
@@ -12,8 +12,8 @@ export const apiUser = async () => {
   }
 };
 
-export const deleteCustomer = async (customerId) => {
-  const url = `http://20.212.111.173:5000/khachhangtiemnang/${customerId}`;
+export const deleteSupply = async (customerId) => {
+  const url = `http://20.212.111.173:5000/nhacungcap/${customerId}`;
 
   try {
     const response = await axios.delete(url);
@@ -25,20 +25,20 @@ export const deleteCustomer = async (customerId) => {
   }
 };
 
-export const updateCustomer = async (customerId,repon) => {
-  const url = `http://20.212.111.173:5000/khachhangtiemnang/${customerId}`;
+export const updateSupply = async (customerId,repon) => {
+  const url = `http://20.212.111.173:5000/nhacungcap/${customerId}`;
 
   try {
     const response = await axios.put(url,repon);
     console.log("Dữ liệu khách hàng đã được cập nhật :", response.data);
     // Add any logic you want after deleting the customer data
   } catch (error) {
-    console.error("Đã xảy ra lỗi khi xoá dữ liệu khách hàng:", error);
+    console.error("Đã xảy ra lỗi khi xoá cap nhat:", error);
     // Add any error handling logic here
   }
 };
-export const newCustomer = async (repon) => {
-  const url = `http://20.212.111.173:5000/khachhangtiemnang`;
+export const newSupply = async (repon) => {
+  const url = `http://20.212.111.173:5000/nhacungcap`;
 
   try {
     const response = await axios.post(url,repon);

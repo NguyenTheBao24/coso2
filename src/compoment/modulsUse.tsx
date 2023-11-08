@@ -1,15 +1,18 @@
+"use client";
+
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import { updateCustomer } from "@/sever/user";
 
-function ModuleUse(data: any) {
+function ModuleUse({ data, onUpdate }: any) {
   const [show, setShow] = useState(false);
-  const [ten, setTen] = useState(data.data.Ten);
-  const [sdt, setSdt] = useState(data.data.SDT);
-  const [nghenghiep, setNgheNghiep] = useState(data.data.NgheNghiep);
-  const [email, setEmail] = useState(data.data.Email);
-  const [thongtin, setThongtin] = useState(data.data.ThongTinChung);
+  const [ten, setTen] = useState(data.Ten);
+  const [sdt, setSdt] = useState(data.SDT);
+  const [nghenghiep, setNgheNghiep] = useState(data.NgheNghiep);
+  const [email, setEmail] = useState(data.Email);
+  const [thongtin, setThongtin] = useState(data.ThongTinChung);
 
   const handleTenChange = (e: any) => setTen(e.target.value);
   const handleSdtChange = (e: any) => setSdt(e.target.value);
@@ -18,28 +21,42 @@ function ModuleUse(data: any) {
   const handleThongtinChange = (e: any) => setThongtin(e.target.value);
 
   const handleClose = () => {
-    setTen(data.data.Ten);
-    setSdt(data.data.SDT);
-    setNgheNghiep(data.data.NgheNghiep);
-    setEmail(data.data.Email);
-    setThongtin(data.data.ThongTinChung);
+    setTen(data.Ten);
+    setSdt(data.SDT);
+    setNgheNghiep(data.NgheNghiep);
+    setEmail(data.Email);
+    setThongtin(data.ThongTinChung);
 
     setShow(false);
   };
   const handleShow = () => {
+    setTen(data.Ten);
+    setSdt(data.SDT);
+    setNgheNghiep(data.NgheNghiep);
+    setEmail(data.Email);
+    setThongtin(data.ThongTinChung);
     setShow(true);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
+ 
+    const updatedData = {
+      Ten: ten,
+      SDT: sdt,
+      NgheNghiep: nghenghiep,
+      Email: email,
+      ThongTinChung: thongtin,
+      ID: data.ID,
+    };
 
-
-
-
-
-
-
-
-    
+    try {
+      await updateCustomer(data.ID, updatedData);
+      onUpdate();
+      handleClose();
+    } catch (error) {
+      console.error("Error updating customer data:", error);
+      // Add any error handling logic here
+    }
   };
 
   console.log(data);
