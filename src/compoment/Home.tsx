@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import stype from "@/stype/sidebar.module.css";
+import stype from "@/style/sidebar.module.css";
 import { useRouter } from "next/navigation";
 
  function Homex() {

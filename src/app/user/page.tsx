@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import styles from "@/stype/supply2.module.css";
+import styles from "@/style/supply2.module.css";
 import ModuleUse from "@/compoment/modulsUse";
 import SideBar from "@/compoment/Sidebar";
 import { apiUser, deleteCustomer } from "@/sever/user";

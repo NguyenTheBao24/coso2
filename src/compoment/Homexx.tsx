@@ -1,6 +1,6 @@
-import style from "@/stype/sidebar.module.css";
-import user_icon from "@/stype/person.png";
-import password_icon from "@/stype/password.png";
+import style from "@/style/sidebar.module.css";
+import user_icon from "@/style/person.png";
+import password_icon from "@/style/password.png";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -31,7 +31,7 @@ function Homexx() {
     <>
       <div className={style.containerx}>
         <div className={style.header}>
-          <div className={style.text}>Sign Up</div>
+          <div className={style.text}>Sign In</div>
           <div className={style.underline}></div>
         </div>
         <div className={style.inputxs}>

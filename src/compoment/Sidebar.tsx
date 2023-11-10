@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faShapes, faUser } from "@fortawesome/free-solid-svg-icons";
-import styles from "../stype/sidebar.module.css";
+import styles from "../style/sidebar.module.css";
 import Link from "next/link";
 
 const SideBar = ({ onSearch, onUpdate }: any) => {
